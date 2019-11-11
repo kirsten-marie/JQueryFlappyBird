@@ -5,7 +5,7 @@ $(document).ready(function() {
     var pole = $('.pole');
     var pole_1 = $('#pole_1');
     var pole_2 = $('#pole_2');
-    var score = $('#score');
+    var score_span = $('#score');
     var speed_span = $('#speed');
     var restart_button = $('#restart_btn');
     var play_pause = $('#play_btn');
@@ -18,19 +18,30 @@ $(document).ready(function() {
     var bird_left = parseInt(bird.css('left'));
     var bird_height = parseInt(bird.height());
     var speed = 10;
+    var score = 0;
 
     //other declarations
     var go_up = false;
+    var score_updated = false;
 
 
     var the_game = setInterval(function() {
 
-        if(collision(bird, pole_1) || collision(bird, pole_2)){
+        if(collision(bird, pole_1) || collision(bird, pole_2) || parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) >= container_height - bird_height){
             stopGame();
 
         } else {
 
             var pole_current_position = parseInt(pole.css('right'));
+
+            //check if bird makes it through poles
+            if(pole_current_position > container_width - bird_left){
+                if (!score_updated){
+                    score += 1;
+                    score_span.text(score);
+                    score_updated = true;
+                }   
+            }
 
             //check if the poles went out of the container
             if (pole_current_position > container_width){
@@ -42,9 +53,10 @@ $(document).ready(function() {
 
                 //increase speed
                 speed += 1;
-                speed_span.text(speed);
+                speed_span.text(speed);  
 
-                //set back to original position
+                //reset scoring & pole positions
+                score_updated = false;
                 pole_current_position = pole_initial_position;
             }
 
@@ -61,6 +73,7 @@ $(document).ready(function() {
     function stopGame(){
         clearInterval(the_game);
         restart_button.css("display", "inline-block");
+        play_pause.css("display", "none");
     }
 
     $(document).on('keydown', function(e){
