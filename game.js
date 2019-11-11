@@ -1,25 +1,78 @@
-//Constants
-var MAX_LIVES = 3;
-var MIN_ENEMIES = 10;
-var MIN_ENEMY_RADIUS = 10;
-var MAX_ENEMY_RADIUS = 30;
-var SPEED = 5;
-var ENEMY_POPULATE_RATE = 5;
-var PLAYER_SPEED = 3;
-var TIME_BETWEEN_ENEMIES = 1000;
+$(document).ready(function() {
+    //Variables for the game dom objects
+    var container = $('#container');
+    var bird = $('#bird');
+    var pole = $('.pole');
+    var pole_1 = $('#pole_1');
+    var pole_2 = $('#pole_2');
+    var score = $('#score');
+    var speed_span = $('#speed');
+    var restart_button = $('#restart_btn');
+    var play_pause = $('#play_btn');
 
-//Global Variables
-var lives = MAX_LIVES;
-var canvas;
-var context;
-var enemies = new Array();
-var avatar;
-var score = 0;
-var gamePaused = false;
-var timer = 0;
+    //Variables for the initial set up    
+    var container_width = parseInt(container.width());
+    var container_height = parseInt(container.height());
+    var pole_initial_position = parseInt(pole.css('right'));
+    var pole_initial_height = parseInt(pole.css('height'));
+    var bird_left = parseInt(bird.css('left'));
+    var bird_height = parseInt(bird.height());
+    var speed = 10;
 
-//doStartup- Get canvas and begin animation
+    //other declarations
+    var go_up = false;
 
-function doStartup() {
-    avatar = createAvatar();
-}
+
+    var the_game = setInterval(function() {
+
+        var pole_current_position = parseInt(pole.css('right'));
+
+        //check if the poles went out of the container
+        if (pole_current_position > container_width){
+            var new_height = parseInt(Math.random() * 100);
+
+            //change the height before allowing pole to reappear
+            pole_1.css('height', pole_initial_height + new_height);
+            pole_2.css('height', pole_initial_height - new_height);
+
+            //increase speed
+            speed += 1;
+            speed_span.text(speed);
+
+            //set back to original position
+            pole_current_position = pole_initial_position;
+        }
+
+        //move the pole to the right
+        pole.css('right', pole_current_position + speed);
+
+        if (!go_up){
+            go_down();
+        }
+
+    }, 40);
+
+    $(document).on('keydown', function(e){
+        var key = e.keyCode;
+        if (key === 32 && !go_up) {
+            go_up = setInterval(up, 50);
+        }
+    });
+
+    $(document).on('keyup', function(e){
+        var key = e.keyCode;
+        if (key === 32) {
+            clearInterval(go_up)
+            go_up = false;
+        }
+    });
+
+    function go_down(){
+        bird.css('top', parseInt(bird.css('top')) + 5);
+    }
+
+    function up(){
+        bird.css('top', parseInt(bird.css('top')) -5);
+    }
+
+});

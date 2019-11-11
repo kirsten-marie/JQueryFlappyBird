@@ -5,6 +5,8 @@
 <title>jQuery Game</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css?family=Passion+One:400,700,900&display=swap" rel="stylesheet">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <!-- Bootstrap core CSS -->
@@ -15,7 +17,7 @@
 <link rel="stylesheet" type ="text/css" href="css/game.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-<script src="js/game.js"></script>
+<script src="game.js"></script>
 
 </head>
 
@@ -30,13 +32,16 @@
 <div id="score_div">
     <p><b>Score: </b><span id="score">0</span></p>
     <p><b>Speed: </b><span id="speed">10</span></p>
-    <p><b>Lives: </b><span id="speed">3 (Replace with var)</span></p>
+    <p><b>Lives: </b><span id="lives">3 (Replace with var)</span></p>
 </div>
 
-<button id="restart_btn">Restart</button>
-<button id="pause_btn">Pause</button>
-<button id="help_btn">Help</button>
-<button id="play_btn">Play</button>
+<div id="btn_div" style="text-align: center;" aria-label="Game buttons">
+    <button type="button" id="play_btn" class="btn blue-gradient game_btns">Play</button>
+    <button type="button" id="restart_btn" class="btn blue-gradient game_btns">Restart</button>
+    <button type="button" id="help_btn" class="btn blue-gradient game_btns">Help</button>
+    
+</div>
+
     
 </body>
 </html>
