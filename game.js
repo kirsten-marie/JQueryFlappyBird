@@ -8,7 +8,8 @@ $(document).ready(function() {
     var score_span = $('#score');
     var speed_span = $('#speed');
     var restart_button = $('#restart_btn');
-    var play_pause = $('#play_btn');
+    var play_btn = $('#play_btn');
+
 
     //Variables for the initial set up    
     var container_width = parseInt(container.width());
@@ -23,7 +24,15 @@ $(document).ready(function() {
     //other declarations
     var go_up = false;
     var score_updated = false;
+    var game_stopped = true;
 
+    play_btn.click(function() {
+        game_stopped = false;
+        play_btn.css("display", "none");
+        playGame();
+    });
+    
+    function playGame(){
 
     var the_game = setInterval(function() {
 
@@ -71,14 +80,20 @@ $(document).ready(function() {
     }, 40);
 
     function stopGame(){
+        game_stopped = true;
         clearInterval(the_game);
         restart_button.css("display", "inline-block");
-        play_pause.css("display", "none");
     }
 
+    restart_button.click(function() {
+        location.reload();
+        playGame();
+    });
+
+    //if space key is pressed when the game is not stopped
     $(document).on('keydown', function(e){
         var key = e.keyCode;
-        if (key === 32 && !go_up) {
+        if (key === 32 && !go_up && !game_stopped) {
             go_up = setInterval(up, 50);
         }
     });
@@ -116,5 +131,7 @@ $(document).ready(function() {
         if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
         return true;
     }
+}
+
 
 });

@@ -5,8 +5,8 @@
 <title>jQuery Game</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css?family=Passion+One:400,700,900&display=swap" rel="stylesheet">
+<!-- Google Font-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Passion+One:400,700,900&display=swap">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <!-- Bootstrap core CSS -->
@@ -16,8 +16,10 @@
 <!-- Customer Styles -->
 <link rel="stylesheet" type ="text/css" href="css/game.css">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script src="game.js"></script>
+
 
 </head>
 
@@ -26,22 +28,44 @@
     <div id="bird"></div>
     <div id="pole_1" class="pole"></div>
     <div id="pole_2" class="pole"></div>
-
 </div>
 
+<!-- Game Stats-->
 <div id="score_div">
     <p><b>Score: </b><span id="score">0</span></p>
     <p><b>Speed: </b><span id="speed">10</span></p>
-    <p><b>Lives: </b><span id="lives">3 (Replace with var)</span></p>
 </div>
 
+<!-- Game Buttons-->
 <div id="btn_div" style="text-align: center;" aria-label="Game buttons">
     <button type="button" id="play_btn" class="btn blue-gradient game_btns">Play</button>
     <button type="button" id="restart_btn" class="btn blue-gradient game_btns">Restart</button>
-    <button type="button" id="help_btn" class="btn blue-gradient game_btns">Help</button>
+    <button type="button" id="help_btn" class="btn btn-info blue-gradient game_btns" data-toggle="modal" data-target="#instructions" data-backdrop="false">Help</button>
     
 </div>
 
+<!-- Instructions Modal-->
+<div class="modal" id="instructions" tabIndex="-1" role="dialog" aria-labelledby="gameInstructions" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <!-- Modal Content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="gameInstructions" style="font-size: 28px">Instructions</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Press and hold the space bar to move the bird up. When you let go of the spacebar, the bird will move down. <br><br>
+                    Don't hit the pipes, top, or bottom of the screen. Each time you make it through a pipe, the score and speed will increase.<br><br>
+                    See how far you can go!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default blue-gradient game_btns" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
     
 </body>
 </html>

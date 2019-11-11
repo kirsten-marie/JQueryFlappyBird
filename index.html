@@ -5,12 +5,36 @@
 <title>jQuery Game</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">	
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-<script src="js/script.js"></script>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
     <h1 style="text-align:center; color:white;" id="hidden">I was hidden!</h1>
-    <button>Alert!</button>
+    <button type ="button" class="btn btn-info" data-toggle="modal" data-target="#m1">Alert!</button>
+
+<!-- Instructions Modal-->
+<div id="m1" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal Content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="gameInstructions">Instructions</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                </div>
+            <div class="modal-body">
+                <p>Press and hold the space bar to move the bird up. When you let go of the spacebar, the bird will move down. <br><br>
+                    Don't hit the pipes, top, or bottom of the screen. Each time you make it through a pipe, the score and speed will increase.<br><br>
+                    See how far you can go!</p>
+            </div>
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
