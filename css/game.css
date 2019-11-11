@@ -1,6 +1,6 @@
 body {
     margin: 0px;
-    padding: 0px;
+    padding: 10px;
     height: 100%;
     width: 100%;
     font-family: 'Passion One', cursive;
@@ -8,7 +8,7 @@ body {
 
 #container {
     position: relative;
-    height: 600px;
+    height: 500px;
     width: 90%;
     border: 1px solid navy;
     background-color:lightblue;
@@ -29,7 +29,7 @@ body {
 
 .pole {
     position: absolute;
-    height: 250px;
+    height: 210px;
     width: 50px;
     background-color: brown;
     right: -50px;
