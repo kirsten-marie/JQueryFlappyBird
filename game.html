@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang ="en-US">
-<head>
-<link rel="stylesheet" type ="text/css" href="game.css">
+<head> 
+
 <title>jQuery Game</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="css/mdb.min.css" rel="stylesheet">
+<!-- Customer Styles -->
+<link rel="stylesheet" type ="text/css" href="css/game.css">
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 <script src="js/game.js"></script>
-<script>
-    $("#gameCanvas").outerHeight(
-        $(window).height()-$("#gameCanvas").offset().top - 
-        Math.abs($("#gameCanvas").outerHeight(true) - $("gameCanvas").outerHeight())
-    );
-    $(window).on("resize", function(){
-        $("#gameCanvas").outerHeight(
-        $(window).height()-$("#gameCanvas").offset().top - 
-        Math.abs($("#gameCanvas").outerHeight(true) - $("gameCanvas").outerHeight())
-        );
-    });
-    
-</script>   
-
-   <style>
-      
-    </style>
 
 </head>
+
 <body>
-    <div id = "gameContainer" style = "padding: 50px; margin: 30px;">
-        <canvas id="gameCanvas"></canvas>
-    </div>
+<div id="container">
+    <div id="bird"></div>
+    <div id="pole_1" class="pole"></div>
+    <div id="pole_2" class="pole"></div>
+
+</div>
+
+<div id="score_div">
+    <p><b>Score: </b><span id="score">0</span></p>
+    <p><b>Speed: </b><span id="speed">10</span></p>
+    <p><b>Lives: </b><span id="speed">3 (Replace with var)</span></p>
+</div>
+
+<button id="restart_btn">Restart</button>
+<button id="pause_btn">Pause</button>
+<button id="help_btn">Help</button>
+<button id="play_btn">Play</button>
     
 </body>
 </html>
