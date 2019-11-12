@@ -12,44 +12,62 @@
         var MAX_HEALTH = 3;
         var STARTING_SPEED = 10;
         var starPoints = 10;
-        
+
+        //Canvas Size
+        var canvasWidth = 600;
+        var canvasHeight = 400;
+
+        //Spritesheet
+        var sheetSource = "img/birdspritesheet.png";
+        var sheetWidth = 800;
+        var sheetHeight = 278;
+        var sheetRows = 2;
+        var sheetColumns = 4;
+
+        //Get sprite size from sheet
+        var spriteWidth = sheetWidth / sheetColumns;
+        var spriteHeight = sheetHeight / sheetRows;
+
+        //Frame information to display sprites
+        var totalFrames = 4;
+        var currentFrame = 0;
+
+        //x and y coordinates where the sprite will be displayed
+        var x = 0;
+        var y = 0;
+
+        //x and y coordinates of the canvas for one frame
+        var spriteX; 
+        var spriteY; 
+
+        //Bird will start flying down at a speed of 5
+        var up = false;
+        var down = true;
+        var flySpeed = 5;
 
         //Game Variables
-        var canvas, context, avatar;
+        var canvas, context, playerCharacter;
         var health = MAX_HEALTH;
         var score = 0;
         var timer = 0;
         var numberStars = 0;
         var gamePaused = false;
         var gameOver = false;
-        
 
-        //Determine how to use sprites for animation
-        var sheetWidth = 800;
-        var sheetHeight = 278;
-        var sheetRows = 2;
-        var sheetColumns = 4;
-        var spriteWidth = sheetWidth / sheetColumns;
-        var spriteHeight = sheetHeight / sheetRows;
 
-        var spriteX; //index from spritesheet
-        var spriteY; //index from spritesheet
+       //Set up the canvas
+       canvas = $("#myCanvas");
+       canvas.width = canvasWidth;
+       canvas.height = canvasHeight;
 
-        var x = 0;
-        var y = 0;
+       //Connection between canvas and context
+       var context = canvas.getContext("2d");
+       var playerCharacter = createAvatar();
 
-        var totalFrames = 4;
-        var currentFrame = 0;
 
-        var up = false;
-        var down = true;
-
-        var canvasWidth = 600;
-        var canvasHeight = 400;
 
 
         function dostartup() {
-            avatar = createAvatar();
             canvas = document.getElementbyId("myCanvas");
             context = canvas.getContext("2d");
 
@@ -64,6 +82,17 @@
 
         }
 
+        function createAvatar(){
+            a = new Image();
+            a.x =screenwidth/4;
+            a.height = spriteHeight;
+            a.width = spriteWidth;
+            a.src = sheetSource;
+            return a;
+        }
+
+
+
         function animate() {
             //clear the canvas
             context.clearRect(0, 0, canvas.width, canvas.height);
@@ -71,10 +100,16 @@
 
             //If out of health, end the game
             if (gameOver) {
-                context.fill
-            }
 
             }
+
+        }
+
+        function updateFrame(){
+            currentFrame = ++currentFrame % totalFrames;
+
+            sourceX *= currentFrame* width;
+        }
         
 
 
