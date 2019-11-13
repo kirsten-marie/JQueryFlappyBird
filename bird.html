@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang ="en-US">
+<head> 
+
+<title>Animated FlappyBird Game</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Font-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Passion+One:400,700,900&display=swap">
+<!-- JavaScript and JQuery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Custom Styles -->
+<link rel="stylesheet" type ="text/css" href="css/game.css">
+
+
+
+
+</head>
+
+<body>
+
+    <canvas width="600" height="300" id="clouds" style="display:none;"></canvas>
+    <img id="canvasImg" alt="Right click to save me!">
+
+    <script>
+        var canvas = document.getElementById('clouds');
+        var context = canvas.getContext('2d')
+
+        // draw cloud
+        context.beginPath();
+        context.moveTo(170, 80);
+        context.bezierCurveTo(130, 100, 130, 150, 230, 150);
+        context.bezierCurveTo(250, 180, 320, 180, 340, 150);
+        context.bezierCurveTo(420, 150, 420, 120, 390, 100);
+        context.bezierCurveTo(430, 40, 370, 30, 340, 50);
+        context.bezierCurveTo(320, 5, 250, 20, 250, 50);
+        context.bezierCurveTo(200, 5, 150, 20, 170, 80);
+        context.closePath();
+        context.lineWidth = 5;
+        context.fillStyle = '#ffffff';
+        context.fill();
+        context.strokeStyle = '#0000ff';
+        context.stroke();
+
+        // save canvas image as data url (png format by default)
+        var dataURL = canvas.toDataURL();
+
+        // set canvasImg image src to dataURL
+        // so it can be saved as an image
+        document.getElementById('canvasImg').src = dataURL;
+    </script>
+
+    <div id="conatiner">
+        <img src="img/birdspritesheet2.png">
+    </div>
+    
+    
+
+
+</body>
+</html>
