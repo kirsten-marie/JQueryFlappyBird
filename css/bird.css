@@ -8,19 +8,13 @@ body{
 }
 
 #myCanvas{
-    background-color: #fff;
-    border:#000 1px solid;
-}
-
-
-#myContainer {
     width: 90%;
     height: 500px;
     position: relative;
     border: 1px solid #000;
     background-color: aliceblue;
     display: none;
-  }
+}
 
   #bird {
       background: url('../img/birdspritesheet2.png') no-repeat;
