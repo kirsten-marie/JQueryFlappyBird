@@ -1,6 +1,13 @@
 $(document).ready(function() {
+    //constants
+    const ctx = document.getElementById("myCanvas").getContext("2d");
+    
     var birdSprites = new Image();
+    birdSprites.addEventListener('load', function(){
+        loadStartMenu();
+    }, false);
     birdSprites.src = 'img/birdspritesheet2.png';
+
     var spriteHeight = 139;
     var spriteWidth = 200;
 
@@ -18,7 +25,7 @@ $(document).ready(function() {
 
     //var animation = setInterval(moveSprite, 100);
     
-    loadStartMenu();
+    
 
     function loadStartMenu(){
         $('#myContainer').fadeIn("slow");
@@ -26,7 +33,7 @@ $(document).ready(function() {
     }
 
     function draw(){
-        var ctx = document.getElementById("myCanvas").getContext("2d");
+
         ctx.drawImage(birdSprites, 20, 20);
 
     }
