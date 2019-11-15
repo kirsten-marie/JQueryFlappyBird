@@ -34,7 +34,7 @@ $(document).ready(function() {
 
     function draw(){
 
-
+        
         //draw 1st bird from sprite sheet and scale it down
         ctx.drawImage(birdSprites, 0, 0, spriteWidth, spriteHeight, 20, 20, spriteWidth/4.5, spriteHeight/4.5);
         ctx.fillStyle = "black";
@@ -46,18 +46,21 @@ $(document).ready(function() {
         ctx.webkitImageSmoothingEnabled = false;
         ctx.msImageSmoothingEnabled = false;
         ctx.imageSmoothingEnabled = false;
+        
 
         ctx.fillStyle = "purple";
-        ctx.fillRect(300, 0, 50, 50);
+        ctx.fillRect(70, 20, 45, 40);
+
+        var rectX = ctx.canvas.width;
         
         //testing out composite assets
 
-        globalAlpha = 0.5;
-        globalCompositeOperation = 'source-atop';
+        ctx.globalAlpha = 1.0;
+        ctx.globalCompositeOperation = 'source-atop';
         //source-atop || source-in || source-out || source-over (default) || destination-atop || destination-in || destination-out || destination-over || lighter || copy || xor
 
         ctx.fillStyle = "orange";
-        ctx.fillRect(300, 20, 50, 50);
+        ctx.fillRect(100, 40, 50, 50);
     }
         
 });
