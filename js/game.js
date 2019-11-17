@@ -9,6 +9,7 @@ $(document).ready(function() {
     var speed_span = $('#speed');
     var restart_button = $('#restart_btn');
     var play_btn = $('#play_btn');
+    const ctx = document.getElementById("myCanvas").getContext("2d");
 
 
     //Variables for the initial set up    

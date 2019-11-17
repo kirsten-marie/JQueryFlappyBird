@@ -7,19 +7,3 @@ body{
     background-color: #666;
 }
 
-#myCanvas{
-    position: relative;
-    border: 1px solid #000;
-    background-color: aliceblue;
-    display: none;
-}
-
-
-  #bird {
-      background: url('../img/birdspritesheet.png') no-repeat;
-      width: 200px;
-      height: 139px;
-      position: absolute;
-      left: 0;
-      background-position: 0px 0px;
-  }
