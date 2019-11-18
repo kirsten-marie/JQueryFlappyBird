@@ -5,6 +5,7 @@ $(document).ready(function() {
     var pole = $('.pole');
     var pole_1 = $('#pole_1');
     var pole_2 = $('#pole_2');
+    var scoreDiv = $('#score_div');
     var score_span = $('#score');
     var speed_span = $('#speed');
     var restart_button = $('#restart_btn');
@@ -21,10 +22,11 @@ $(document).ready(function() {
     var speed = 10;
     var score = 0;
 
-    //other declarations
+    //other variables
     var go_up = false;
     var score_updated = false;
     var game_stopped = true;
+    var endText = "";
 
     play_btn.click(function() {
         game_stopped = false;
@@ -83,9 +85,16 @@ $(document).ready(function() {
         game_stopped = true;
         clearInterval(the_game);
         restart_button.css("display", "inline-block");
+        var endText = $(newDiv()).text("Game Over! You went through " + score + " pipes. Click the restart button to try again");
+        $(scoreDiv).prepend(endText);
+
+        function newDiv() {
+            return "<div class='gameOver'></div>";
+        }
     }
 
     restart_button.click(function() {
+        $(endText).remove();
         location.reload();
         playGame();
     });
