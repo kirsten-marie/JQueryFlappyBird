@@ -6,6 +6,14 @@ body {
     font-family: 'Passion One', cursive;
 }
 
+.gameOver{
+    margin: 30px;
+    padding: 20px;
+    width: 80%;
+    font-size: 50px;
+    text-align: center;
+}
+
 #container {
     position: relative;
     height: 500px;
@@ -29,25 +37,23 @@ body {
 
 .pole {
     position: absolute;
-    height: 200px;
+    height: 190px;
     width: 50px;
-    background-color: brown;
+    background-color: green;
     right: -50px;
 }
 
 #pole_1{
     top: 0;
-    //background: url('../img/top_pole.png');
 }
 
 #pole_2{
     bottom: 0;
-    //background: url('../img/bottom_pole.png');
 }
 
 #score_div{
     text-align: center;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .game_btns{
