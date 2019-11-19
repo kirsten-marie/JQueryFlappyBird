@@ -115,6 +115,19 @@ $(document).ready(function() {
         }
     });
 
+     //if mouse is cliced when game is not stopped
+     $(document).mousedown(function(){
+        if (!go_up && !game_stopped) {
+            go_up = setInterval(up, 50);
+        }
+    });
+
+    $(document).mouseup(function(){
+            clearInterval(go_up)
+            go_up = false;
+    });
+   
+
     function go_down(){
         bird.css('top', parseInt(bird.css('top')) + 5);
     }
