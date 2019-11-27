@@ -1,25 +1,42 @@
 body {
     margin: 0px;
-    padding: 10px;
+    padding: 0px;
     height: 100%;
     width: 100%;
     font-family: 'Passion One', cursive;
+    cursor: pointer;
 }
 
 .gameOver{
-    margin: 30px;
+    margin: 10px;
     padding: 20px;
     width: 80%;
-    font-size: 50px;
-    text-align: center;
+    font-size: 2.5vw;
+    display: flex;
+    justify-content: center;
+}
+
+.bkg-animated {
+  background: url('../img/flappybirdbackground.jpg') repeat 0 0;
+  width: 100%;
+  height: 700px;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  -webkit-animation: slide 20s linear infinite;
+}
+
+
+@-webkit-keyframes slide {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
 }
 
 #container {
     position: relative;
-    height: 500px;
     width: 90%;
-    border: 1px solid navy;
-    background-color:lightblue;
+    border: 1px solid #888;
+    box-shadow: 2px 2px 8px #888;
     margin-left: 4%;
     overflow: hidden;
 }
@@ -37,7 +54,7 @@ body {
 
 .pole {
     position: absolute;
-    height: 190px;
+    height: 250px;
     width: 50px;
     background-color: green;
     right: -50px;
@@ -51,17 +68,31 @@ body {
     bottom: 0;
 }
 
-#score_div{
-    text-align: center;
+#stats{
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin: 4px;
+}
+
+#gameControls{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     font-size: 30px;
 }
 
 .game_btns{
-    display:inline-block;
     margin: 10px;
     border-radius: 50px;
     text-align: center;
     font-size: 16px;
+    flex-direction: row;
 }
 
 #restart_btn{

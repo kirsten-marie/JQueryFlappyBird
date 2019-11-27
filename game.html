@@ -13,7 +13,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <!-- Material Design Bootstrap -->
 <link href="css/mdb.min.css" rel="stylesheet">
-<!-- Customer Styles -->
+<!-- Custom Styles -->
 <link rel="stylesheet" type ="text/css" href="css/game.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -24,24 +24,28 @@
 </head>
 
 <body>
-<div id="container">
+<div id="container" class="bkg-animated">
     <div id="bird"></div>
     <div id="pole_1" class="pole"></div>
     <div id="pole_2" class="pole"></div>
 </div>
 
 <!-- Game Stats-->
-<div id="score_div">
+<div id="gameControls">
+    <div id="stats">
     <p><b>Score: </b><span id="score">0</span></p>
     <p><b>Speed: </b><span id="speed">10</span></p>
-</div>
+    </div>
+
 
 <!-- Game Buttons-->
-<div id="btn_div" style="text-align: center;" aria-label="Game buttons">
+<div id="btn_div" class="game_btns" aria-label="Game buttons">
     <button type="button" id="play_btn" class="btn blue-gradient game_btns">Play</button>
     <button type="button" id="restart_btn" class="btn blue-gradient game_btns">Restart</button>
-    <button type="button" id="help_btn" class="btn btn-info blue-gradient game_btns" data-toggle="modal" data-target="#instructions" data-backdrop="false">Help</button>
+    <button type="button" id="help_btn" class="btn btn-info blue-gradient game_btns" data-toggle="modal" data-target="#instructions" data-backdrop="false">Instructions</button>
     
+</div>
+
 </div>
 
 <!-- Instructions Modal-->
@@ -56,7 +60,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Press and hold the space bar to move the bird up. When you let go of the spacebar, the bird will move down. <br><br>
+                <p>Press and hold the space bar or mouse (or tap a touchscreen device) to move the bird up. When you let go, the bird will move down. <br><br>
                     Don't hit the pipes, top, or bottom of the screen. Each time you make it through a pipe, the score and speed will increase.<br><br>
                     See how far you can go!</p>
             </div>
